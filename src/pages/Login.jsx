@@ -1,5 +1,26 @@
-
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 const Login = () => {
+  const history = useHistory();
+  const [password, setPassword] = useState('');
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (password === 'admin123') {
+      // Password is correct, redirect to home page
+      history.push('/home');
+    } else {
+      // Password is incorrect, show an error message or perform other actions
+      // For now, let's just log an error message to the console
+      console.error('Incorrect password');
+    }
+  };
+
   return (
       <div className="container mx-auto ">
          <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
@@ -43,11 +64,13 @@ const Login = () => {
               </div>
               <div className="mt-2">
                 <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
+                 id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+                value={password}
+                onChange={handlePasswordChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -56,6 +79,7 @@ const Login = () => {
             <div>
               <button
                 type="submit"
+                onClick={handleSubmit}
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in

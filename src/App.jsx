@@ -5,6 +5,7 @@ import Transfers from "./pages/Transfers"
 import Tariffs from "./pages/Tariffs"
 import About from "./pages/About"
 import './App.css'
+import Login from "./pages/Login"
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/transfers" element={<Transfers/>} />
         <Route path="/tariffs" element={<Tariffs/>} />
         <Route path="/about" element={<About/>} />
+        <Route path="/login" element={<Login/>} />
       </Route>
     )
   )
