@@ -8,6 +8,7 @@ const router = createBrowserRouter([
     element: (
       <div>
         <h1>Hello World</h1>
+        <p>assalom</p>
         <Link to="about">About Us</Link>
       </div>
     ),
