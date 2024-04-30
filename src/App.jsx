@@ -1,7 +1,9 @@
+import Login from "./login/Login";
+
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl text-red-200 font-bold underline">Hello world!</h1>
+      <h1 className=""><Login/></h1>
     </div>
   );
 };
