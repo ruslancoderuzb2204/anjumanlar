@@ -63,7 +63,7 @@ function Navbar() {
     <li className="list-none " key={link}>
       <NavLink
         to={path}
-        className="block px-3 py-2 text-blue-700 bg-transparent rounded md:bg-blue-700 md:text-white md:p-3 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-700 shadow_book"
+        className="block px-3 py-2 text-blue-700 bg-transparent bg-black rounded md:bg-blue-700 md:text-white md:p-3 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-700 shadow_book"
         aria-current="page"
       >
         {link}
@@ -91,6 +91,11 @@ function Navbar() {
             
           ))
         }
+        
+       
+       
+       
+       
       </ul>
     </div>
   </div>
