@@ -1,8 +1,25 @@
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
+import Admin from "./pages/Admin/Admin";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div>
+        <h1>Hello World</h1>
+        <Link to="about">About Us</Link>
+      </div>
+    ),
+  },
+  {
+    path: "admin",
+    element: <Admin/>,
+  },
+]);
 const App = () => {
-  return (
-    <div>
-      <h1 className="text-3xl text-red-200 font-bold underline">Hello world!</h1>
-    </div>
+  return createRoot(document.getElementById('root')).render(
+    <RouterProvider router={router} />
   );
 };
 
