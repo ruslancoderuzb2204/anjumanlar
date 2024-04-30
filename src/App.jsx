@@ -1,27 +1,30 @@
-import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Link } from "react-router-dom";
-import Admin from "./pages/Admin/Admin";
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom"
+import Layout from "./layout/layout"
+import Home from "./pages/Home"
+import Transfers from "./pages/Transfers"
+import Tariffs from "./pages/Tariffs"
+import About from "./pages/About"
+import './App.css'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <p>assalom</p>
-        <Link to="about">About Us</Link>
-      </div>
-    ),
-  },
-  {
-    path: "admin",
-    element: <Admin/>,
-  },
-]);
+
 const App = () => {
-  return createRoot(document.getElementById('root')).render(
-    <RouterProvider router={router} />
-  );
-};
 
-export default App;
+  const routes = createBrowserRouter(
+    createRoutesFromElements(
+      <Route element={<Layout/>}>
+        <Route path="/" element={<Home/>} />
+        <Route path="/transfers" element={<Transfers/>} />
+        <Route path="/tariffs" element={<Tariffs/>} />
+        <Route path="/about" element={<About/>} />
+      </Route>
+    )
+  )
+
+  return (
+    <>
+      <RouterProvider router={routes} />
+    </>
+  )
+}
+
+export default App
